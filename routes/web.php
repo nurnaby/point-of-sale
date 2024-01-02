@@ -21,3 +21,4 @@ Route::get('/', function () {
 // Web API Routes
 Route::post('/user-registration',[UserController::class,'UserRegistration']);
 Route::post('/user-login',[UserController::class,'UserLogin']);
+Route::post('/send-otp',[UserController::class,'SendOTPcode']);
