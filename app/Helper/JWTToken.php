@@ -33,7 +33,7 @@ class JWTToken{
 
 
 
-    function VerifyToken($token){
+    public static function VerifyToken($token){
         try{
             $key =env('JWT_KEY');
             // JWT::decode($token,new Key($key,'HS256'));
@@ -46,4 +46,5 @@ class JWTToken{
             return 'unauthorized';
         }
     }
+
 }
