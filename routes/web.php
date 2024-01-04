@@ -16,7 +16,7 @@ use App\Http\Middleware\TokenVerificationMiddleware;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.dashboard.dashboard-page');
 });
 
 // Web API Routes
