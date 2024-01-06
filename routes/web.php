@@ -18,6 +18,18 @@ use App\Http\Middleware\TokenVerificationMiddleware;
 Route::get('/', function () {
     return view('pages.auth.login-page');
 });
+Route::get('/registation', function () {
+    return view('pages.auth.registation-page');
+});
+Route::get('/reset', function () {
+    return view('pages.auth.reset-pass-page');
+});
+Route::get('/sendotp', function () {
+    return view('pages.auth.sendOTP-page');
+});
+Route::get('/verifyotp', function () {
+    return view('pages.auth.verifyOTP-page');
+});
 
 // Web API Routes
 Route::post('/user-registration',[UserController::class,'UserRegistration']);
