@@ -18,24 +18,21 @@ use App\Http\Middleware\TokenVerificationMiddleware;
 Route::get('/', function () {
     return view('pages.auth.login-page');
 });
-Route::get('/registation', function () {
-    return view('pages.auth.registation-page');
-});
-Route::get('/reset', function () {
-    return view('pages.auth.reset-pass-page');
-});
-Route::get('/sendotp', function () {
-    return view('pages.auth.sendOTP-page');
-});
-Route::get('/verifyotp', function () {
-    return view('pages.auth.verifyOTP-page');
-});
+
+
 
 // Web API Routes
 Route::post('/user-registration',[UserController::class,'UserRegistration']);
 Route::post('/user-login',[UserController::class,'UserLogin']);
 Route::post('/send-otp',[UserController::class,'SendOTPcode']);
 Route::post('/verify-otp',[UserController::class,'VerifyOTP']);
-
-
 Route::post('/reset-password',[UserController::class,'ResetPassword'])->middleware([TokenVerificationMiddleware::class]);
+
+
+
+Route::get('/dashboard',[UserController::class,'Dashbord']);
+Route::get('/userLogin',[UserController::class,'UserLoginPage']);
+Route::get('/userRegistration',[UserController::class,'RegistrationPage']);
+Route::get('/sendotp',[UserController::class,'SendOtpPage']);
+Route::get('/verifyotp',[UserController::class,'VerifyOTPPage']);
+Route::get('/verifyotp',[UserController::class,'ResetPasswordPage']);

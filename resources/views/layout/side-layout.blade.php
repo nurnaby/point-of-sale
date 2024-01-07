@@ -24,10 +24,20 @@
     <link rel="stylesheet" href="{{ asset('assets/css/dark-theme.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/semi-dark.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/header-colors.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/toastify.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/toastify.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/progress.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
     <title>Rukada - Responsive Bootstrap 5 Admin Template</title>
 </head>
 
 <body>
+    <div id="loader" class="LoadingOverlay d-none">
+        <div class="Line-Progress">
+            <div class="indeterminate"></div>
+        </div>
+    </div>
     <!--wrapper-->
     <div class="wrapper">
         <!--sidebar wrapper -->
@@ -557,6 +567,9 @@
     <script src="{{ asset('assets/plugins/sparkline-charts/jquery.sparkline.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/jquery-knob/excanvas.js') }}"></script>
     <script src="{{ asset('assets/plugins/jquery-knob/jquery.knob.js') }}"></script>
+    <script src="{{ asset('assets/js/axios.min.js') }}"></script>
+    <script src="{{ asset('assets/js/toastify-js.js') }}"></script>
+    <script src="{{ asset('assets/js/config.js') }}"></script>
     <script>
         $(function() {
             $(".knob").knob();
