@@ -19,50 +19,40 @@
 
                             <div class="form-body">
 
-                                <form method="POST" class="row g-3" action="#">
-                                    @csrf
-                                    <div class="col-12">
-                                        <label for="inputEmailAddress"
-                                            class="form-label  @error('email') is-invalid @enderror">Email
-                                            Address</label>
-                                        <input type="email" class="form-control" id="email"
-                                            placeholder="Email Address" name="email" class="" required>
-                                        @error('email')
-                                            <span class="alert alert-danger">{{ $message }}</span>
-                                        @enderror
 
+
+                                <div class="col-12">
+                                    <label for="inputEmailAddress"
+                                        class="form-label  @error('email') is-invalid @enderror">Email
+                                        Address</label>
+                                    <input type="email" class="form-control" id="email"
+                                        placeholder="Email Address" name="email" class="" required>
+                                    @error('email')
+                                        <span class="alert alert-danger">{{ $message }}</span>
+                                    @enderror
+
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <label for="inputChoosePassword" class="form-label">Enter
+                                        Password</label>
+                                    <div class="input-group" id="show_hide_password">
+                                        <input type="password" name="password" class="form-control border-end-0"
+                                            id="password" placeholder="Enter Password" required>
+                                        <a href="javascript:;" class="input-group-text bg-transparent"><i
+                                                class='bx bx-hide'></i></a>
                                     </div>
-                                    <div class="col-12">
-                                        <label for="inputChoosePassword" class="form-label">Enter
-                                            Password</label>
-                                        <div class="input-group" id="show_hide_password">
-                                            <input type="password" name="password" class="form-control border-end-0"
-                                                id="password" placeholder="Enter Password" required>
-                                            <a href="javascript:;" class="input-group-text bg-transparent"><i
-                                                    class='bx bx-hide'></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
-                                                checked>
-                                            <label class="form-check-label" for="flexSwitchCheckChecked">Remember
-                                                Me</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 text-end"> <a href="authentication-forgot-password.html">Forgot
-                                            Password ?</a>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="d-grid">
-                                            {{-- <a class="btn btn-primary" href="{{ url('/userRegistration') }}">Sign Up
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="d-grid">
+                                        {{-- <a class="btn btn-primary" href="{{ url('/userRegistration') }}">Sign Up
                                             </a> --}}
 
-                                            <button onclick="SubmitLogin()" class="btn btn-primary"><i
-                                                    class="bx bxs-lock-open"></i>Sign in</button>
-                                        </div>
+                                        <button onclick="SubmitLogin()" class="btn btn-primary"><i
+                                                class="bx bxs-lock-open"></i>Sign in</button>
                                     </div>
-                                </form>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -83,6 +73,7 @@
             errorToast("Password is required");
 
         } else {
+
             showLoader();
             let res = await axios.post("/user-login", {
                 email: email,
@@ -90,8 +81,11 @@
             });
             hideLoader()
             if (res.status === 200 && res.data['status'] === 'success') {
+
                 window.location.href = "/dashboard";
+
             } else {
+
                 errorToast(res.data['message']);
                 // window.location.href = "/userLogin";
             }

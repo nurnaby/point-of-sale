@@ -18,10 +18,8 @@
                     <div class="card-body">
                         <div class="border p-4 rounded">
                             <div class="text-center">
-                                <h3 class="">Reset Password</h3>
-                                <p>Don't have an account yet? <a href="authentication-signup.html">Sign up
-                                        here</a>
-                                </p>
+                                <h3 class="">Set New Password</h3>
+
                             </div>
 
 
@@ -29,42 +27,31 @@
 
                                 <form method="POST" class="row g-3" action="#">
                                     @csrf
-                                    <div class="col-12">
-                                        <label for="inputEmailAddress"
-                                            class="form-label  @error('email') is-invalid @enderror">Email
-                                            Address</label>
-                                        <input type="email" class="form-control" id="email"
-                                            placeholder="Email Address" name="email" class="" required>
-                                        @error('email')
-                                            <span class="alert alert-danger">{{ $message }}</span>
-                                        @enderror
 
-                                    </div>
                                     <div class="col-12">
-                                        <label for="inputChoosePassword" class="form-label">Enter
-                                            Password</label>
+                                        <label for="inputChoosePassword" class="form-label">New Password</label>
                                         <div class="input-group" id="show_hide_password">
                                             <input type="password" name="password" class="form-control border-end-0"
-                                                id="inputChoosePassword" placeholder="Enter Password" required>
+                                                id="password" placeholder="Enter Password" required>
                                             <a href="javascript:;" class="input-group-text bg-transparent"><i
                                                     class='bx bx-hide'></i></a>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
-                                                checked>
-                                            <label class="form-check-label" for="flexSwitchCheckChecked">Remember
-                                                Me</label>
+                                    <div class="col-12">
+                                        <label for="inputChoosePassword" class="form-label">Conform Password</label>
+                                        <div class="input-group" id="show_hide_password">
+                                            <input type="password" name="Cpassword" class="form-control border-end-0"
+                                                id="cpassword" placeholder="Enter Password" required>
+                                            <a href="javascript:;" class="input-group-text bg-transparent"><i
+                                                    class='bx bx-hide'></i></a>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 text-end"> <a href="authentication-forgot-password.html">Forgot
-                                            Password ?</a>
-                                    </div>
+
+
                                     <div class="col-12">
                                         <div class="d-grid">
-                                            <button type="submit" class="btn btn-primary"><i
-                                                    class="bx bxs-lock-open"></i>Sign in</button>
+                                            <button onclick="ResetPass()" class="btn btn-primary"><i
+                                                    class="bx bxs-lock-open"></i>Next</button>
                                         </div>
                                     </div>
                                 </form>
@@ -77,3 +64,33 @@
     </div>
     <!--end row-->
 </div>
+
+<script>
+    async function ResetPass() {
+        let password = document.getElementById('password').value;
+        let cpassword = document.getElementById('cpassword').value;
+
+        if (password.length === 0) {
+            errorToast('Password is required')
+        } else if (cpassword.length === 0) {
+            errorToast('Confirm Password is required')
+        } else if (password !== cpassword) {
+            errorToast('Password and Confirm Password must be same')
+        } else {
+            showLoader()
+            let res = await axios.post("/reset-password", {
+                password: password
+            });
+            hideLoader();
+            if (res.status === 200 && res.data['status'] === 'success') {
+                successToast(res.data['message']);
+                setTimeout(function() {
+                    window.location.href = "/userLogin";
+                }, 1000);
+            } else {
+                errorToast(res.data['message'])
+            }
+        }
+
+    }
+</script>

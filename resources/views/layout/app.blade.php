@@ -21,14 +21,18 @@
     <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/icons.cs') }}s" rel="stylesheet">
     <!-- Theme Style CSS -->
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('assets/css/dark-theme.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/semi-dark.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/header-colors.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/toastify.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/toastify.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.min.css') }}" />
+
+    <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/progress.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
+    <script src="{{ asset('assets/js/axios.min.js') }}"></script>
+    <script src="{{ asset('assets/js/toastify-js.js') }}"></script>
+    <script src="{{ asset('assets/js/config.js') }}"></script>
     <title>Rukada - Responsive Bootstrap 5 Admin Template</title>
 </head>
 
@@ -69,7 +73,7 @@
     <!-- Bootstrap JS -->
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <!--plugins-->
-    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+
     <script src="{{ asset('assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
@@ -80,9 +84,7 @@
     <script src="{{ asset('assets/plugins/sparkline-charts/jquery.sparkline.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/jquery-knob/excanvas.js') }}"></script>
     <script src="{{ asset('assets/plugins/jquery-knob/jquery.knob.js') }}"></script>
-    <script src="{{ asset('assets/js/axios.min.js') }}"></script>
-    <script src="{{ asset('assets/js/toastify-js.js') }}"></script>
-    <script src="{{ asset('assets/js/config.js') }}"></script>
+
     <script>
         $(function() {
             $(".knob").knob();
