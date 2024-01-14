@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\categoryController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Middleware\TokenVerificationMiddleware;
 
 /*
@@ -41,3 +43,23 @@ Route::get('/sendotp',[UserController::class,'SendOtpPage']);
 Route::get('/verifyotp',[UserController::class,'VerifyOTPPage']);
 Route::get('/resetPassword',[UserController::class,'ResetPasswordPage']);
 Route::get('/userProfile',[UserController::class,'userProfile'])->middleware([TokenVerificationMiddleware::class]);
+//category page
+Route::get('/categoryPage',[CategoryController::class,'CategoryPage'])->middleware([TokenVerificationMiddleware::class]);
+//customer page
+Route::get('/customerPage',[CustomerController::class,'CustomerPage'])->middleware([TokenVerificationMiddleware::class]);
+
+
+
+// Category API
+Route::post("/create-category",[categoryController::class,'CategoryCreate'])->middleware([TokenVerificationMiddleware::class]);
+Route::get("/list-category",[categoryController::class,'CategoryList'])->middleware([TokenVerificationMiddleware::class]);
+Route::post("/delete-category",[categoryController::class,'CategoryDelete'])->middleware([TokenVerificationMiddleware::class]);
+Route::post("/update-category",[categoryController::class,'CategoryUpdate'])->middleware([TokenVerificationMiddleware::class]);
+Route::post("/category-by-id",[categoryController::class,'CategoryByID'])->middleware([TokenVerificationMiddleware::class]);
+
+// Customer API
+Route::post("/create-customer",[CustomerController::class,'CustomerCreate'])->middleware([TokenVerificationMiddleware::class]);
+Route::get("/list-customer",[CustomerController::class,'CustomerList'])->middleware([TokenVerificationMiddleware::class]);
+Route::post("/delete-customer",[CustomerController::class,'CustomerDelete'])->middleware([TokenVerificationMiddleware::class]);
+Route::post("/update-customer",[CustomerController::class,'CustomerUpdate'])->middleware([TokenVerificationMiddleware::class]);
+Route::post("/customer-by-id",[CustomerController::class,'CustomerByID'])->middleware([TokenVerificationMiddleware::class]);

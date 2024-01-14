@@ -26,10 +26,16 @@
     <link rel="stylesheet" href="{{ asset('assets/css/header-colors.css') }}" />
 
     <link rel="stylesheet" href="{{ asset('assets/css/toastify.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/progress.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
-    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('assets/css/jquery.dataTables.min.css') }}" />
+
+    <script src="{{ asset('assets/js/jquery-3.7.0.min.js') }}"></script>
+
+    {{-- <script src="{{ asset('assets/js/jquery.min.js') }}"></script> --}}
+    <script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
+
     <script src="{{ asset('assets/js/axios.min.js') }}"></script>
     <script src="{{ asset('assets/js/toastify-js.js') }}"></script>
     <script src="{{ asset('assets/js/config.js') }}"></script>
@@ -71,16 +77,20 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript:;" class="has-arrow">
+                    <a href="{{ url('/categoryPage') }}" class="has-arrow">
                         <div class="parent-icon"><i class='bx bx-home-circle'></i>
                         </div>
-                        <div class="menu-title">Trip</div>
+                        <div class="menu-title">Category</div>
                     </a>
-                    <ul>
-                        <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Add Trip</a>
-                        </li>
 
-                    </ul>
+                </li>
+                <li>
+                    <a href="{{ url('/customerPage') }}" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                        </div>
+                        <div class="menu-title">Customer</div>
+                    </a>
+
                 </li>
 
 

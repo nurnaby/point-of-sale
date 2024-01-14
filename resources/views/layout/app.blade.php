@@ -21,7 +21,7 @@
     <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/icons.cs') }}s" rel="stylesheet">
     <!-- Theme Style CSS -->
-    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+
     <link rel="stylesheet" href="{{ asset('assets/css/dark-theme.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/semi-dark.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/header-colors.css') }}" />
@@ -30,6 +30,13 @@
     <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/progress.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/jquery.dataTables.min.css') }}" />
+
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
+
+
+
     <script src="{{ asset('assets/js/axios.min.js') }}"></script>
     <script src="{{ asset('assets/js/toastify-js.js') }}"></script>
     <script src="{{ asset('assets/js/config.js') }}"></script>

@@ -79,7 +79,7 @@
                 email: email,
                 password: password
             });
-            hideLoader()
+            hideLoader();
             if (res.status === 200 && res.data['status'] === 'success') {
 
                 window.location.href = "/dashboard";
