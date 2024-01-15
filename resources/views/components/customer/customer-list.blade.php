@@ -85,6 +85,8 @@
                  </tr>`
             tableList.append(row)
         })
+
+
         $('.deleteBtn').on('click', function() {
             let id = $(this).data('id');
             $('#delete-modal').modal('show')
@@ -92,20 +94,24 @@
 
         })
 
+        $('.editBtn').on('click', async function() {
+            let id = $(this).data('id');
+            await CustomerByID(id);
+            $('#update-Modal').modal('show');
+
+        });
+
+
+
+
+
 
 
 
 
 
         tableData.DataTable();
-        // new DataTable('#tableData', {
-        //     order: [
-        //         [0, 'desc']
-        //     ],
-        //     lengthMenu: [5, 10, 15, 20, 30]
 
-
-        // });
 
 
     }
