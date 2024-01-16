@@ -92,6 +92,14 @@
                     </a>
 
                 </li>
+                <li>
+                    <a href="{{ url('/productPage') }}" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                        </div>
+                        <div class="menu-title">Product</div>
+                    </a>
+
+                </li>
 
 
 
