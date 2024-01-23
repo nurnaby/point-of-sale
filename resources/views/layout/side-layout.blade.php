@@ -66,7 +66,7 @@
             <ul class="metismenu" id="menu">
                 <li>
                     <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                        <div class="parent-icon"><i class="lni lni-dashboard"></i>
                         </div>
                         <div class="menu-title">Dashboard</div>
                     </a>
@@ -86,7 +86,7 @@
                 </li>
                 <li>
                     <a href="{{ url('/customerPage') }}" class="has-arrow">
-                        <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                        <div class="parent-icon"><i class="lni lni-customer"></i>
                         </div>
                         <div class="menu-title">Customer</div>
                     </a>
@@ -97,6 +97,14 @@
                         <div class="parent-icon"><i class='bx bx-home-circle'></i>
                         </div>
                         <div class="menu-title">Product</div>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="{{ url('/salePage') }}" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                        </div>
+                        <div class="menu-title">Sales</div>
                     </a>
 
                 </li>
@@ -146,7 +154,8 @@
                     </div>
                     <div class="search-bar flex-grow-1">
                         <div class="position-relative search-bar-box">
-                            <input type="text" class="form-control search-control" placeholder="Type to search...">
+                            <input type="text" class="form-control search-control"
+                                placeholder="Type to search...">
                             <span class="position-absolute top-50 search-show translate-middle-y"><i
                                     class='bx bx-search'></i></span>
                             <span class="position-absolute top-50 search-close translate-middle-y"><i

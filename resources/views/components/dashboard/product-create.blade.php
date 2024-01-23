@@ -22,15 +22,15 @@
                             </div>
                             <div class="col-12 p-1">
                                 <label class="form-label">Product Name *</label>
-                                <input type="text" class="form-control" id="customerName">
+                                <input type="text" class="form-control" id="productName">
                             </div>
                             <div class="col-12 p-1">
                                 <label class="form-label">Price *</label>
-                                <input type="text" class="form-control" id="customerMobile">
+                                <input type="text" class="form-control" id="productPrice">
                             </div>
                             <div class="col-12 p-1">
                                 <label class="form-label">Unit *</label>
-                                <input type="text" class="form-control" id="customerMobile">
+                                <input type="text" class="form-control" id="productUnit">
                             </div>
                             <div class="col-12 p-1">
 
@@ -50,7 +50,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button id="costomer-modal-close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button id="modal-close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button onclick="Save()" id="save-btn" class="btn btn-primary">Save changes</button>
             </div>
         </div>
@@ -66,5 +66,50 @@
             $('#productCategory').append(option);
         })
 
+    }
+
+    async function Save() {
+        let productCategory = document.getElementById('productCategory').value;
+        let productName = document.getElementById('productName').value;
+        let productPrice = document.getElementById('productPrice').value;
+        let productUnit = document.getElementById('productUnit').value;
+        let productImg = document.getElementById('productImg').files[0];
+        if (productCategory.length === 0) {
+            errorToast("Product Category Required !")
+        } else if (productName.length === 0) {
+            errorToast("Product Name Required !")
+        } else if (productPrice.length === 0) {
+            errorToast("Product Price Required !")
+        } else if (productUnit.length === 0) {
+            errorToast("Product Unit Required !")
+        } else if (!productImg) {
+            errorToast("Product Image Required !")
+        } else {
+            document.getElementById('modal-close').click();
+
+            let formData = new FormData();
+            formData.append('img', productImg)
+            formData.append('name', productName)
+            formData.append('price', productPrice)
+            formData.append('unit', productUnit)
+            formData.append('category_id', productCategory)
+
+            const config = {
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
+            }
+            showLoader();
+            let res = await axios.post("/create-product", formData, config)
+            hideLoader();
+            if (res.status === 201) {
+                successToast('Request completed');
+                document.getElementById("save-form").reset();
+                await getList();
+            } else {
+                errorToast("Request fail !")
+            }
+
+        }
     }
 </script>
