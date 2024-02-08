@@ -65,16 +65,12 @@
             <!--navigation-->
             <ul class="metismenu" id="menu">
                 <li>
-                    <a href="javascript:;" class="has-arrow">
+                    <a href="{{ url('/dashboard') }}" class="has-arrow">
                         <div class="parent-icon"><i class="lni lni-dashboard"></i>
                         </div>
                         <div class="menu-title">Dashboard</div>
                     </a>
-                    <ul>
-                        <li> <a href="index.html"><i class="bx bx-right-arrow-alt"></i>Default</a>
-                        </li>
 
-                    </ul>
                 </li>
                 <li>
                     <a href="{{ url('/categoryPage') }}" class="has-arrow">
@@ -107,6 +103,22 @@
                         <div class="menu-title">Sales</div>
                     </a>
 
+                </li>
+
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-cart'></i>
+                        </div>
+                        <div class="menu-title">Invoice</div>
+                    </a>
+                    <ul>
+                        <li> <a href="{{ url('/invoicePage') }}"><i class="bx bx-right-arrow-alt"></i>Invoice
+                                List</a>
+                        </li>
+
+
+
+                    </ul>
                 </li>
 
 

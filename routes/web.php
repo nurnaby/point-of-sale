@@ -6,6 +6,7 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\dashbroadController;
 use App\Http\Middleware\TokenVerificationMiddleware;
 
 /*
@@ -82,3 +83,6 @@ Route::post("/invoice-create",[InvoiceController::class,'invoiceCreate'])->middl
 Route::get("/invoice-select",[InvoiceController::class,'invoiceSelect'])->middleware([TokenVerificationMiddleware::class]);
 Route::post("/invoice-details",[InvoiceController::class,'InvoiceDetails'])->middleware([TokenVerificationMiddleware::class]);
 Route::post("/invoice-delete",[InvoiceController::class,'invoiceDelete'])->middleware([TokenVerificationMiddleware::class]);
+
+
+Route::get("/summary",[dashbroadController::class,'Summary'])->middleware([TokenVerificationMiddleware::class]);

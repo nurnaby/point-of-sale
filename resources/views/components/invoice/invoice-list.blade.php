@@ -12,14 +12,8 @@
                     </ol>
                 </nav>
             </div>
-            {{-- <div class="ms-auto">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">Customer Create</button>
+            <div class="breadcrumb-title pe-3">Create Sale </div>
 
-
-                </div>
-            </div> --}}
         </div>
         <!--end breadcrumb-->
         <div class="row">
@@ -61,6 +55,8 @@
     getList();
 
 
+
+
     async function getList() {
 
 
@@ -76,35 +72,32 @@
 
         res.data.forEach(function(item, index) {
             let row = `<tr>
-                        <td>${index+1}</td>
-                        <td>${item['customer']['name']}</td>
-                        <td>${item['customer']['mobile']}</td>
-                        <td>${item['total']}</td>
-                      
-                        <td>${item['discount']}</td>
-                        <td>${item['payable']}</td>
-                        <td>
-                           
-
-
-                            <button data-id="${item['id']}" data-cus="${item['customer']['id']}"  class="btn editBtn btn-primary text-center">view</button>
-                            <button data-id="${item['id']}" data-cus="${item['customer']['id']}"  class="btn deleteBtn btn-danger text-center">Delete</button>
-                        </td>
-                     </tr>`
+                <td>${index+1}</td>
+                <td>${item['customer']['name']}</td>
+                <td>${item['customer']['mobile']}</td>
+                <td>${item['total']}</td>
+                
+                <td>${item['discount']}</td>
+                <td>${item['payable']}</td>
+                <td>
+                    <button data-id="${item['id']}" data-cus="${item['customer']['id']}" class="viewBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0"><i class="fa text-sm fa-eye"></i></button>
+                    <button data-id="${item['id']}" data-cus="${item['customer']['id']}" class="deleteBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0"><i class="fa text-sm  fa-trash-alt"></i></button>
+                </td>
+             </tr>`
             tableList.append(row)
         })
 
-        // $('.viewBtn').on('click', async function() {
-        //     let id = $(this).data('id');
-        //     let cus = $(this).data('cus');
-        //     await InvoiceDetails(cus, id)
-        // })
+        $('.viewBtn').on('click', async function() {
+            let id = $(this).data('id');
+            let cus = $(this).data('cus');
+            await InvoiceDetails(cus, id)
+        })
 
-        // $('.deleteBtn').on('click', function() {
-        //     let id = $(this).data('id');
-        //     document.getElementById('deleteID').value = id;
-        //     $("#delete-modal").modal('show');
-        // })
+        $('.deleteBtn').on('click', function() {
+            let id = $(this).data('id');
+            document.getElementById('deleteID').value = id;
+            $("#delete-modal").modal('show');
+        })
 
         new DataTable('#tableData', {
             order: [

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Exception;
 use App\Models\Invoice;
+use App\Models\Customer;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Models\InvoiceProduct;
@@ -73,6 +74,37 @@ class InvoiceController extends Controller
     function invoiceSelect(Request $request){
         $user_id=$request->header('id');
         return Invoice::where('user_id',$user_id)->with('customer')->get();
+    }
+
+    function invoiceDelete(Request $request){
+        DB::beginTransaction();
+        try {
+            $user_id=$request->header('id');
+            InvoiceProduct::where('invoice_id',$request->input('inv_id'))
+                ->where('user_id',$user_id)
+                ->delete();
+            Invoice::where('id',$request->input('inv_id'))->delete();
+            DB::commit();
+            return 1;
+        }
+        catch (Exception $e){
+            DB::rollBack();
+            return 0;
+        }
+    }
+
+    function InvoiceDetails(Request $request){
+        $user_id=$request->header('id');
+        $customerDetails=Customer::where('user_id',$user_id)->where('id',$request->input('cus_id'))->first();
+        $invoiceTotal=Invoice::where('user_id','=',$user_id)->where('id',$request->input('inv_id'))->first();
+        $invoiceProduct=InvoiceProduct::where('invoice_id',$request->input('inv_id'))
+            ->where('user_id',$user_id)->with('product')
+            ->get();
+        return array(
+            'customer'=>$customerDetails,
+            'invoice'=>$invoiceTotal,
+            'product'=>$invoiceProduct,
+        );
     }
 
 }
